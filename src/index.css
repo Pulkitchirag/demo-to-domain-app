@@ -52,28 +52,19 @@ All colors MUST be HSL.
 }
 
 @layer utilities {
-  .animate-heart-draw {
-    stroke-dasharray: 1000;
-    stroke-dashoffset: 1000;
-    animation: draw-heart 8s ease-in-out forwards;
-  }
-
-  @keyframes draw-heart {
-    to {
+  @keyframes drawLine {
+    0% {
+      opacity: 0;
+      stroke-dasharray: 100;
+      stroke-dashoffset: 100;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 1;
+      stroke-dasharray: 100;
       stroke-dashoffset: 0;
-    }
-  }
-
-  .animate-glow {
-    animation: glow 2s ease-in-out infinite alternate;
-  }
-
-  @keyframes glow {
-    from {
-      filter: drop-shadow(0 0 10px hsl(348 83% 47% / 0.5));
-    }
-    to {
-      filter: drop-shadow(0 0 30px hsl(348 83% 47% / 0.9));
     }
   }
 
