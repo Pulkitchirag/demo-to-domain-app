@@ -8,44 +8,35 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 220 25% 8%;
-    --foreground: 210 40% 98%;
+    --background: 0 0% 5%;
+    --foreground: 0 0% 95%;
 
-    --card: 220 20% 12%;
-    --card-foreground: 210 40% 98%;
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 95%;
 
-    --popover: 220 20% 12%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 95%;
 
-    --primary: 189 95% 62%;
-    --primary-foreground: 220 25% 8%;
+    --primary: 0 0% 95%;
+    --primary-foreground: 0 0% 5%;
 
-    --secondary: 280 85% 65%;
-    --secondary-foreground: 220 25% 8%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 95%;
 
-    --muted: 220 15% 20%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 60%;
 
-    --accent: 330 85% 65%;
-    --accent-foreground: 220 25% 8%;
+    --accent: 348 83% 47%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 220 15% 18%;
-    --input: 220 15% 18%;
-    --ring: 189 95% 62%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 348 83% 47%;
 
-    --radius: 0.75rem;
-
-    /* Gradient colors */
-    --gradient-start: 189 95% 62%;
-    --gradient-mid: 280 85% 65%;
-    --gradient-end: 330 85% 65%;
-    
-    /* Glass effect */
-    --glass-bg: 220 20% 12%;
-    --glass-border: 220 15% 25%;
+    --radius: 0.5rem;
   }
 }
 
@@ -55,69 +46,45 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground overflow-x-hidden;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  }
-
-  .font-mono {
-    font-family: 'Space Mono', 'Courier New', monospace;
+    @apply bg-background text-foreground overflow-hidden;
+    font-family: 'Playfair Display', Georgia, serif;
   }
 }
 
 @layer utilities {
-  .gradient-text {
-    @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(
-      135deg,
-      hsl(var(--gradient-start)),
-      hsl(var(--gradient-mid)),
-      hsl(var(--gradient-end))
-    );
+  .animate-heart-draw {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: draw-heart 8s ease-in-out forwards;
   }
 
-  .gradient-bg {
-    background: linear-gradient(
-      135deg,
-      hsl(var(--gradient-start)),
-      hsl(var(--gradient-mid)),
-      hsl(var(--gradient-end))
-    );
-  }
-
-  .glass {
-    background: hsla(var(--glass-bg) / 0.4);
-    backdrop-filter: blur(20px);
-    border: 1px solid hsla(var(--glass-border) / 0.2);
-  }
-
-  .animate-pulse-slow {
-    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  }
-
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
-  }
-
-  @keyframes float {
-    0%, 100% {
-      transform: translateY(0px);
-    }
-    50% {
-      transform: translateY(-20px);
+  @keyframes draw-heart {
+    to {
+      stroke-dashoffset: 0;
     }
   }
 
-  .animate-gradient {
-    background-size: 200% 200%;
-    animation: gradient-shift 8s ease infinite;
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
   }
 
-  @keyframes gradient-shift {
-    0%, 100% {
-      background-position: 0% 50%;
+  @keyframes glow {
+    from {
+      filter: drop-shadow(0 0 10px hsl(348 83% 47% / 0.5));
     }
-    50% {
-      background-position: 100% 50%;
+    to {
+      filter: drop-shadow(0 0 30px hsl(348 83% 47% / 0.9));
+    }
+  }
+
+  .animate-fade-in-slow {
+    animation: fade-in-slow 3s ease-in forwards;
+    opacity: 0;
+  }
+
+  @keyframes fade-in-slow {
+    to {
+      opacity: 1;
     }
   }
 }
