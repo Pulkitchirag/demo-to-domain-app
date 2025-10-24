@@ -1,25 +1,12 @@
-import Lottie from "lottie-react";
+import AnimatedBear from "./AnimatedBear";
 
 const Confession = () => {
-  // Placeholder - replace with actual Lottie JSON for bear holding heart
-  const bearHeartAnimation = {
-    v: "5.7.4",
-    fr: 30,
-    ip: 0,
-    op: 60,
-    w: 500,
-    h: 500,
-    nm: "Bear with Heart",
-    ddd: 0,
-    assets: [],
-    layers: []
-  };
-
   return (
     <section className="min-h-screen flex flex-col items-center justify-center px-6 py-20 bg-secondary/30 relative z-10">
       <div className="max-w-3xl w-full bg-card rounded-3xl p-12 shadow-2xl animate-fadeInUp">
-        <div className="w-40 h-40 mx-auto mb-8 animate-pulse-soft">
-          <Lottie animationData={bearHeartAnimation} loop={true} />
+        <div className="mx-auto mb-8 flex justify-center gap-4">
+          <AnimatedBear size="md" variant="blush" />
+          <AnimatedBear size="md" variant="love" />
         </div>
         
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-8 text-accent">

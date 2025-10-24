@@ -1,25 +1,11 @@
-import Lottie from "lottie-react";
+import AnimatedBear from "./AnimatedBear";
 
 const WelcomeSection = () => {
-  // Placeholder - replace with actual Lottie JSON
-  const bearAnimation = {
-    v: "5.7.4",
-    fr: 30,
-    ip: 0,
-    op: 60,
-    w: 500,
-    h: 500,
-    nm: "Bear Waving",
-    ddd: 0,
-    assets: [],
-    layers: []
-  };
-
   return (
     <section className="min-h-screen flex flex-col items-center justify-center px-6 py-20 relative z-10">
       <div className="animate-fadeInUp" style={{ animationDelay: '0.2s', opacity: 0 }}>
-        <div className="w-48 h-48 mb-8 animate-pulse-soft">
-          <Lottie animationData={bearAnimation} loop={true} />
+        <div className="mb-8">
+          <AnimatedBear size="lg" variant="wave" />
         </div>
       </div>
       

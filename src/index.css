@@ -87,6 +87,27 @@ All colors MUST be HSL.
     }
   }
 
+  @keyframes wave {
+    0%, 100% {
+      transform: rotate(0deg);
+    }
+    10%, 30%, 50%, 70%, 90% {
+      transform: rotate(14deg);
+    }
+    20%, 40%, 60%, 80% {
+      transform: rotate(-8deg);
+    }
+  }
+
+  @keyframes blush {
+    0%, 100% {
+      filter: brightness(1);
+    }
+    50% {
+      filter: brightness(1.2);
+    }
+  }
+
   .animate-float {
     animation: float 3s ease-in-out infinite;
   }
@@ -97,5 +118,14 @@ All colors MUST be HSL.
 
   .animate-pulse-soft {
     animation: pulse-soft 2s ease-in-out infinite;
+  }
+
+  .animate-wave {
+    animation: wave 2s ease-in-out infinite;
+    transform-origin: 70% 70%;
+  }
+
+  .animate-blush {
+    animation: blush 2s ease-in-out infinite;
   }
 }
