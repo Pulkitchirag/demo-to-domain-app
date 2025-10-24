@@ -1,12 +1,12 @@
+import AnimatedBear from "./AnimatedBear";
+
 const WelcomeSection = () => {
   return (
     <section className="min-h-screen flex flex-col items-center justify-center px-6 py-20 relative z-10">
       <div className="animate-fadeInUp" style={{ animationDelay: '0.2s', opacity: 0 }}>
-        <div className="w-64 h-64 mb-8">
-          <iframe 
-            src="https://lottie.host/embed/69a1c742-31e1-11ef-ac34-c30bc61540a8/4HxQTZk3IC.json"
-            style={{ border: 'none', width: '100%', height: '100%' }}
-          />
+        <div className="mb-8 flex gap-4 justify-center">
+          <AnimatedBear size="lg" variant="wave" />
+          <AnimatedBear size="lg" variant="blush" />
         </div>
       </div>
       
