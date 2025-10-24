@@ -8,35 +8,35 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 5%;
-    --foreground: 0 0% 95%;
+    --background: 350 100% 97%;
+    --foreground: 340 40% 30%;
 
-    --card: 0 0% 10%;
-    --card-foreground: 0 0% 95%;
+    --card: 0 0% 100%;
+    --card-foreground: 340 40% 30%;
 
-    --popover: 0 0% 10%;
-    --popover-foreground: 0 0% 95%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 340 40% 30%;
 
-    --primary: 0 0% 95%;
-    --primary-foreground: 0 0% 5%;
+    --primary: 350 100% 87%;
+    --primary-foreground: 340 60% 30%;
 
-    --secondary: 0 0% 15%;
-    --secondary-foreground: 0 0% 95%;
+    --secondary: 270 60% 90%;
+    --secondary-foreground: 340 60% 30%;
 
-    --muted: 0 0% 20%;
-    --muted-foreground: 0 0% 60%;
+    --muted: 30 67% 94%;
+    --muted-foreground: 340 30% 50%;
 
-    --accent: 348 83% 47%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 320 85% 75%;
+    --accent-foreground: 340 60% 30%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: 348 83% 47%;
+    --border: 350 60% 92%;
+    --input: 350 60% 95%;
+    --ring: 350 100% 87%;
 
-    --radius: 0.5rem;
+    --radius: 1.5rem;
   }
 }
 
@@ -46,36 +46,56 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground overflow-hidden;
-    font-family: 'Playfair Display', Georgia, serif;
+    @apply bg-background text-foreground;
+    font-family: 'Quicksand', 'Poppins', sans-serif;
   }
 }
 
 @layer utilities {
-  @keyframes drawLine {
-    0% {
-      opacity: 0;
-      stroke-dasharray: 100;
-      stroke-dashoffset: 100;
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0) translateX(0);
+    }
+    25% {
+      transform: translateY(-20px) translateX(10px);
     }
     50% {
-      opacity: 1;
+      transform: translateY(-10px) translateX(-10px);
     }
-    100% {
-      opacity: 1;
-      stroke-dasharray: 100;
-      stroke-dashoffset: 0;
+    75% {
+      transform: translateY(-30px) translateX(5px);
     }
   }
 
-  .animate-fade-in-slow {
-    animation: fade-in-slow 3s ease-in forwards;
-    opacity: 0;
-  }
-
-  @keyframes fade-in-slow {
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
     to {
       opacity: 1;
+      transform: translateY(0);
     }
+  }
+
+  @keyframes pulse-soft {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-fadeInUp {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  .animate-pulse-soft {
+    animation: pulse-soft 2s ease-in-out infinite;
   }
 }

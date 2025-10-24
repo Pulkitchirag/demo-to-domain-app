@@ -49,7 +49,7 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['Playfair Display', 'Georgia', 'serif'],
+        sans: ['Quicksand', 'Poppins', 'sans-serif'],
       },
       borderRadius: {
         lg: "var(--radius)",
